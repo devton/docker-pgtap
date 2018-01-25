@@ -52,7 +52,7 @@ if [[ $rc != 0 ]] ; then
   exit $rc
 fi
 # run the tests
-PGPASSWORD=$PASSWORD pg_prove -h $HOST -p $PORT -d $DATABASE -U $USER $TESTS
+PGPASSWORD=$PASSWORD pg_prove -c -h $HOST -p $PORT -d $DATABASE -U $USER $TESTS 
 rc=$?
 # uninstall pgtap
 PGPASSWORD=$PASSWORD psql -h $HOST -p $PORT -d $DATABASE -U $USER -f /pgtap/sql/uninstall_pgtap.sql > /dev/null 2>&1
